@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.section-containers {
+  display: flex;
+  flex-direction: row;
+}
+
+.section-containers > p {
+  margin: 10px;
+  min-width: 100px;
+  min-height: 200px;
+  padding: 25px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.player-one-hand, 
+.player-two-hand {
+  display: flex;
+}
+
+.player-one-hand > div, 
+.player-two-hand > div {
+  border: 1px solid pink;
+  padding: 10px;
+  margin: 10px; 
+}

@@ -13,25 +13,25 @@ export default class App extends React.Component {
       playerOneAttack: 0,
       playerTwoAttack: 0,
       cards: [
-        { id: 7, name: 'rifle', attack: '10', defense: '5'  },
-        { id: 8, name: 'revive 10 health', attack: '10', defense: '5'  },
-        { id: 9, name: 'forest base', attack: '10', defense: '5'  },
-        { id: 10, name: 'spear', attack: '10', defense: '5'  },
-        { id: 11, name: 'lightning spear', attack: '10', defense: '5'  },
-        { id: 12, name: 'lightning sword', attack: '10', defense: '5'  },
-        { id: 13, name: 'water blade', attack: '10', defense: '5'  },
-        { id: 14, name: 'tiger style kung fu', attack: '10', defense: '5'  },
-        { id: 15, name: 'base turrets', attack: '10', defense: '5' },
+        { id: 7, name: 'rifle', attack: 10, defense: 5  },
+        { id: 8, name: 'revive 10 health', attack: 10, defense: 5  },
+        { id: 9, name: 'forest base', attack: 10, defense: 5  },
+        { id: 10, name: 'spear', attack: 10, defense: 5  },
+        { id: 11, name: 'lightning spear', attack: 10, defense: 5  },
+        { id: 12, name: 'lightning sword', attack: 10, defense: 5  },
+        { id: 13, name: 'water blade', attack: 10, defense: 5  },
+        { id: 14, name: 'tiger style kung fu', attack: 10, defense: 5  },
+        { id: 15, name: 'base turrets', attack: 10, defense: 5  },
       ],
       player_one_hand: [
-        { id: 1, name: 'pirate ship', attack: '10', defense: '5' },
-        { id: 2, name: 'bow', attack: '11', defense: '5' },
-        { id: 3, name: 'arrow', attack: '12', defense: '5' }
+        { id: 1, name: 'pirate ship', attack: 10, defense: 5  },
+        { id: 2, name: 'bow', attack: 10, defense: 5  },
+        { id: 3, name: 'arrow', attack: 10, defense: 5  },
       ],
       player_two_hand: [
-        { id: 4, name: 'mountain base', attack: '10', defense: '5'  },
-        { id: 5, name: 'sword', attack: '10', defense: '5'  },
-        { id: 6, name: 'shield', attack: '10', defense: '5'  }
+        { id: 4, name: 'mountain base', attack: 10, defense: 5  },
+        { id: 5, name: 'sword', attack: 10, defense: 5  },
+        { id: 6, name: 'shield', attack: 10, defense: 5  },
       ],
       discards: []
     }
@@ -67,7 +67,10 @@ export default class App extends React.Component {
       return accumulator + item.attack
     }, 0)
 
-    console.log(sumOneAttack)
+    const sumTwo = pTwo.map(att => att)
+    const sumTwoAttack = sumTwo.reduce((accumulator, item) => {
+      return accumulator + item.attack
+    }, 0)
 
     const itCards = cards.map((k,v) => <div>{k.name}</div>)
     const itDiscards = disCards.map((k,v) => <div>{k.name}</div>)
@@ -92,7 +95,7 @@ export default class App extends React.Component {
         })
       } else if (this.state.cards.length === 0) {
         this.setState({
-          cards: this.state.discards,
+          cards: [...this.state.discards, randomCard],
           discards: [{}],
           message: 'pick a card'
         })
@@ -114,7 +117,7 @@ export default class App extends React.Component {
           <p>Discards: {itDiscards}</p>
         </div>
         <div className="section-containers">
-          <p className="player-two-hand">Player Two {this.state.playerTwoHealth} {this.state.playerTwoAttack} {itTwo}</p>
+          <p className="player-two-hand">Player Two {this.state.playerTwoHealth} {this.state.playerTwoAttack} Attack: {sumTwoAttack} {itTwo}</p>
         </div>
       </>
     )

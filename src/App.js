@@ -45,6 +45,15 @@ export default class App extends React.Component {
     let pTwo = this.state.player_two_hand
     let cards = this.state.cards
     let disCards = this.state.discards
+    let pOneHealth = this.state.playerOneHealth
+    let pTwoHealth = this.state.playerTwoHealth
+    let pTwoAttack = this.state.playerTwoAttack
+    let pOneAttack = this.state.playerOneAttack
+    let pTwoDefense = this.state.playerTwoDefense
+    let pOneDefense = this.state.playerOneDefense
+
+    const itCards = cards.map((k,v) => <div>{k.name}</div>)
+    const itDiscards = disCards.map((k,v) => <div>{k.name}</div>)
       
     const itOne = pOne.map((k, v) => 
       <div>
@@ -63,6 +72,10 @@ export default class App extends React.Component {
         <br></br>
       </div>
     )
+
+      /// --------------------------------------------
+    /// --------------------------------------------
+  /// --------------------------------------------
 
 
     //attack totals for player one and two
@@ -87,8 +100,10 @@ export default class App extends React.Component {
       return accumulator + item.defense
     }, 0)
 
-    const itCards = cards.map((k,v) => <div>{k.name}</div>)
-    const itDiscards = disCards.map((k,v) => <div>{k.name}</div>)
+      /// --------------------------------------------
+    /// --------------------------------------------
+  /// --------------------------------------------
+
 
     const addCardandSwitchTurn = () => {
 
@@ -99,12 +114,14 @@ export default class App extends React.Component {
       if (this.state.turn === false && this.state.cards.length > 0){
         this.setState({
           turn: !this.state.turn,
+          playerOneHealth: parseInt(pOneHealth + pOneDefense - pTwoAttack),
           player_one_hand: [...this.state.player_one_hand, randomCard],
           discards: [...this.state.discards, randomCard]
         })
       } else if (this.state.turn === true && this.state.cards.length > 0) {
         this.setState({
           turn: !this.state.turn,
+          playerTwoHealth: parseInt(pTwoHealth + pTwoDefense - pOneAttack),
           player_two_hand: [...this.state.player_two_hand, randomCard],
           discards: [...this.state.discards, randomCard]
         })
@@ -122,9 +139,9 @@ export default class App extends React.Component {
     return (
       <>
         <p>Message: {this.state.message}</p>
-        <button onClick={addCardandSwitchTurn}>click me</button>
+        <button onClick={addCardandSwitchTurn}>draw card and attack</button>
         <div className="section-containers">
-          <p className="player-one-hand">Player One {this.state.playerOneHealth} <br></br> Attack: {sumOneAttack} Defense: {sumOneDefense} {itOne}</p>
+          <p className="player-one-hand">Player One {this.state.playerOneHealth} <br></br> My Turn: {!this.state.turn ? "true" : "false"} <br></br> Attack: {sumOneAttack} <br></br> Defense: {sumOneDefense} <br></br> {itOne} </p>
         </div>
         <div className="section-containers">
           <p>Game</p>
@@ -132,7 +149,7 @@ export default class App extends React.Component {
           <p>Discards: {itDiscards}</p>
         </div>
         <div className="section-containers">
-          <p className="player-two-hand">Player Two {this.state.playerTwoHealth} {this.state.playerTwoAttack} Attack: {sumTwoAttack}  Defense: {sumTwoDefense} {itTwo}</p>
+          <p className="player-two-hand">Player Two {this.state.playerTwoHealth} <br></br> My Turn: {this.state.turn ? "true" : "false"} <br></br> {this.state.playerTwoAttack} <br></br> Attack: {sumTwoAttack} <br></br> Defense: {sumTwoDefense} <br></br> {itTwo}</p>
         </div>
       </>
     )

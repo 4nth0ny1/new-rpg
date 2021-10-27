@@ -12,6 +12,8 @@ export default class App extends React.Component {
       playerTwoHealth: 1000, 
       playerOneAttack: 0,
       playerTwoAttack: 0,
+      playerOneDefense: 0, 
+      playerTwoDefense: 0,
       cards: [
         { id: 7, name: 'rifle', attack: 10, defense: 5  },
         { id: 8, name: 'revive 10 health', attack: 10, defense: 5  },
@@ -62,6 +64,8 @@ export default class App extends React.Component {
       </div>
     )
 
+
+    //attack totals for player one and two
     const sum = pOne.map(att => att)
     const sumOneAttack = sum.reduce((accumulator, item) => {
       return accumulator + item.attack
@@ -70,6 +74,17 @@ export default class App extends React.Component {
     const sumTwo = pTwo.map(att => att)
     const sumTwoAttack = sumTwo.reduce((accumulator, item) => {
       return accumulator + item.attack
+    }, 0)
+
+    //defense totals for player one and two
+    const sumDef = pOne.map(att => att)
+    const sumOneDefense = sumDef.reduce((accumulator, item) => {
+      return accumulator + item.defense
+    }, 0)
+
+    const sumTwoDef = pTwo.map(att => att)
+    const sumTwoDefense = sumTwoDef.reduce((accumulator, item) => {
+      return accumulator + item.defense
     }, 0)
 
     const itCards = cards.map((k,v) => <div>{k.name}</div>)
@@ -109,7 +124,7 @@ export default class App extends React.Component {
         <p>Message: {this.state.message}</p>
         <button onClick={addCardandSwitchTurn}>click me</button>
         <div className="section-containers">
-          <p className="player-one-hand">Player One {this.state.playerOneHealth} <br></br> Attack: {sumOneAttack} {itOne}</p>
+          <p className="player-one-hand">Player One {this.state.playerOneHealth} <br></br> Attack: {sumOneAttack} Defense: {sumOneDefense} {itOne}</p>
         </div>
         <div className="section-containers">
           <p>Game</p>
@@ -117,7 +132,7 @@ export default class App extends React.Component {
           <p>Discards: {itDiscards}</p>
         </div>
         <div className="section-containers">
-          <p className="player-two-hand">Player Two {this.state.playerTwoHealth} {this.state.playerTwoAttack} Attack: {sumTwoAttack} {itTwo}</p>
+          <p className="player-two-hand">Player Two {this.state.playerTwoHealth} {this.state.playerTwoAttack} Attack: {sumTwoAttack}  Defense: {sumTwoDefense} {itTwo}</p>
         </div>
       </>
     )

@@ -110,6 +110,10 @@ export default class App extends React.Component {
       }
     }
 
+      /// --------------------------------------------
+    /// --------------------------------------------
+  /// --------------------------------------------
+
     const addCardandSwitchTurn = () => {
       checkWin()
       let randomIndex = Math.floor(Math.random() * cards.length)
@@ -145,7 +149,7 @@ export default class App extends React.Component {
             <div className='player-id'>
               <h1>Player One</h1>
               <p>Health: {this.state.playerOneHealth}</p>
-              <p>{this.state.turn ? "My Turn" : " "}</p>
+              <p>{!this.state.turn ? "My Turn" : " "}</p>
               <p>Attack: {sumOneAttack}</p>
               <p>Defense: {sumOneDefense}</p>
             </div>
@@ -160,7 +164,7 @@ export default class App extends React.Component {
             <div className='player-id'>
               <h1>Player Two</h1>
               <p>Health: {this.state.playerTwoHealth}</p>
-              <p>{!this.state.turn ? "My Turn" : " "}</p>
+              <p>{this.state.turn ? "My Turn" : " "}</p>
               <p>Attack: {sumTwoAttack}</p>
               <p>Defense: {sumTwoDefense}</p>
             </div>

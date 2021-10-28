@@ -1,4 +1,5 @@
 import React from 'react';
+import Base from './components/Base';
 import './App.css';
 
 export default class App extends React.Component {
@@ -157,6 +158,16 @@ export default class App extends React.Component {
           </div>
           <div className="game-board">
               <button onClick={addCardandSwitchTurn}>draw card and attack</button>
+              <div className="player-game-cards">
+                <Base />
+                <Base />
+                <Base />
+              </div>
+              <div className="player-game-cards">
+                <Base />
+                <Base />
+                <Base />
+              </div>
               {this.state.message}
           </div>
           <div className='player-container bottom'>

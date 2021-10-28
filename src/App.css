@@ -42,3 +42,14 @@
   border-top-right-radius: 5px;
 }
 
+.base-area {
+  width: 100px;
+  height: 150px;
+  border: 1px solid black;
+}
+
+.player-game-cards {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 35px;
+}

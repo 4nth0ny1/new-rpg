@@ -53,17 +53,15 @@ export default class App extends React.Component {
       
     const itOne = pOne.map((k, v) => 
       <div className="card">
-        <p>{k.name} <br></br> ⚔️ {k.attack} 🛡 {k.defense}</p>
         <img className="card-image" alt={k.name} src={k.image} />
-        <br></br>
+        <div>{k.name} <br></br> ⚔️ {k.attack} 🛡 {k.defense}</div>
       </div>
     )
 
     const itTwo = pTwo.map((k, v) => 
       <div className="card">
-        <p>{k.name} <br></br> ⚔️ {k.attack} 🛡 {k.defense}</p>
         <img className="card-image" alt={k.name} src={k.image} />
-        <br></br>
+        <div>{k.name} <br></br> ⚔️ {k.attack} 🛡 {k.defense}</div>
       </div>
     )
 
@@ -131,7 +129,7 @@ export default class App extends React.Component {
     return (
       <>
         <div className="board">
-          <div className='player-container'>
+          <div className='player-container top'>
             <div className='player-id'>
               <h1>Player One</h1>
               <p>{this.state.playerOneHealth}</p>
@@ -144,7 +142,7 @@ export default class App extends React.Component {
           <div className="game-board">
               <button onClick={addCardandSwitchTurn}>draw card and attack</button>
           </div>
-          <div className='player-container'>
+          <div className='player-container bottom'>
             <div className="hand">{itTwo}</div>
             <div className='player-id'>
               <h1>Player Two</h1>

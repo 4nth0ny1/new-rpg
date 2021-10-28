@@ -1,7 +1,8 @@
 .game-board {
   width: 100wh;
   height: 50vh;
-  border: 1px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
 }
 
 .player-container {
@@ -11,17 +12,17 @@
 }
 
 .player-id {
-  border: 5px solid black;
   width: 20%;
 }
 
 .hand {
   width: 80%;
-  border: 5px solid red;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   text-align: center;
+  align-items: center;
+  padding-left: 80px;
 }
 
 .card {
@@ -29,6 +30,8 @@
   height: 150px;
   padding: 5px;
   border: 1px solid black;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .card-image {

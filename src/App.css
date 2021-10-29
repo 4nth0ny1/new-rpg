@@ -1,3 +1,7 @@
+.board {
+  background-image: url('https://images.unsplash.com/photo-1533035350251-aa8b8e208d95?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGJhY2tncm91bmR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');
+}
+
 .game-board {
   width: 100wh;
   height: 50vh;
@@ -12,6 +16,7 @@
 }
 
 .player-id {
+  background: brown;
   width: 20%;
   text-align: center;
 }
@@ -27,6 +32,7 @@
 }
 
 .card {
+  background: brown;
   width: 100px;
   height: 150px;
   padding: 5px;
@@ -43,6 +49,7 @@
 }
 
 .base-area {
+  background: brown;
   width: 100px;
   height: 150px;
   border: 1px solid black;

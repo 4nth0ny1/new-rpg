@@ -53,10 +53,25 @@
   width: 100px;
   height: 150px;
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 .player-game-cards {
   display: flex;
   justify-content: space-evenly;
   margin: 35px;
+}
+
+.base-group {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background: brown;
+}
+
+.current-base-totals {
+  display: flex;
+  flex-direction: column;
+  background: brown;
+  font-size: 20px;
 }

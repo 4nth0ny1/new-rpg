@@ -1,5 +1,5 @@
 .board {
-  background-image: url('https://images.unsplash.com/photo-1533035350251-aa8b8e208d95?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGJhY2tncm91bmR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60');
+  background-image: url("https://images.unsplash.com/photo-1533035350251-aa8b8e208d95?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGJhY2tncm91bmR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60");
 }
 
 .game-board {
@@ -74,4 +74,16 @@
   flex-direction: column;
   background: brown;
   font-size: 20px;
+}
+
+.current-base-totals > span {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.card-info {
+  text-align: center;
 }

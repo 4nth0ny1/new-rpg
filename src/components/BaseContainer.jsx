@@ -14,12 +14,16 @@ const BaseContainer = (props) => {
             { props.cardContainer[0] ? <div className="container">
             <div className="base-group">
                 <div className="current-base-totals">
-                    <span>⚔️ {totalAttack}</span>
-                    <span>🛡 {totalDefense}</span>
+                    <span>⚔️</span>
+                    <span>{totalAttack}</span>
+                    <span>🛡</span>
+                    <span>{totalDefense}</span>
                 </div>
                 <div className="card">
                     <img className="card-image" alt={props.cardContainer[0]?.name} src={props.cardContainer[0]?.image} />
-                    <div>{props.cardContainer[0]?.name} <br></br> ⚔️ {props.cardContainer[0]?.attack} 🛡 {props.cardContainer[0]?.defense}</div>
+                    <div className="card-info">
+                        <div>{props.cardContainer[0]?.name} <br></br> ⚔️ {props.cardContainer[0]?.attack} 🛡 {props.cardContainer[0]?.defense}</div>
+                    </div>
                 </div>
             </div>
             </div> : <div className="base-area"></div> }
